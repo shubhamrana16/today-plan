@@ -26,6 +26,6 @@ html{
 
 input[type = "text"]:focus{
   background: transparent;
-  color:whitesmoke ;
+  color:white ;
 }
 
