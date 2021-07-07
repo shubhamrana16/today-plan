@@ -10,6 +10,7 @@ function App() {
 
 
  let handleChange =  e =>{
+   
     setText(   e.target.value )
   }
 
@@ -20,10 +21,11 @@ function App() {
 
 
 
-   function deleteText(){
-      
-      setItem((prevState) => prevState.concat(text))
-    }
+   const deleteText =  (id) => {
+        setItem((state) => {
+          return state.slice(0, id).concat(state.slice( id + 1));
+        });
+      };
 
 
   return (
@@ -44,8 +46,8 @@ function App() {
                   <div  >
                      <ul className = "list-unstyled row m-5 ">
                       {
-                         item.map((value) => {
-                            return <Plan value = {value} />
+                         item.map((value,index) => {
+                            return <Plan key = {index} id = {index} value = {value} sendData = {deleteText}  />
                         }) 
 
 
